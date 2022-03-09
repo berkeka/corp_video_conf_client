@@ -55,7 +55,7 @@ class App extends Component<Props, State> {
   }
 
   render() {
-    const currentUser = this.state;
+    const {currentUser} = this.state;
 
     return (
       <div>
@@ -71,7 +71,7 @@ class App extends Component<Props, State> {
               </ul>
       
               <div className="text-end">
-              {currentUser ? (
+              {(currentUser)? (
                 <Fragment>
                   <Link to={"/dashboard"} className="btn btn-outline-light me-2">Dashboard</Link>
                   <Link to={"/login"} className="btn btn-warning" onClick={this.logOut}>Logout</Link>
