@@ -12,6 +12,7 @@ import IUser from './types/user.type';
 
 import Home from "./components/home.component";
 import Login from "./components/login.component";
+import NotFound from "./components/notfound.component";
 
 import EventBus from "./common/EventBus";
 
@@ -90,6 +91,7 @@ class App extends Component<Props, State> {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       </div>
