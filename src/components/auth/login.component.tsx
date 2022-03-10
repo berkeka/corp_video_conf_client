@@ -2,7 +2,7 @@ import { Component } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import './login.css'
 
-import AuthService from "../services/auth.service";
+import AuthService from "../../services/auth.service";
 
 type Props = any;
 

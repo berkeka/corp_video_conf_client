@@ -10,9 +10,9 @@ import './App.css';
 import AuthService from "./services/auth.service";
 import IUser from './types/user.type';
 
-import Home from "./components/home.component";
-import Login from "./components/login.component";
-import NotFound from "./components/notfound.component";
+import Home from "./components/auth/home.component";
+import Login from "./components/auth/login.component";
+import NotFound from "./components/auth/notfound.component";
 
 import EventBus from "./common/EventBus";
 
@@ -90,6 +90,7 @@ class App extends Component<Props, State> {
         <div className="container mt-3">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/login" element={<Login />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
