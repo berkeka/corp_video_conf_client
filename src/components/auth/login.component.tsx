@@ -72,8 +72,8 @@ export default class Login extends Component<Props, State> {
         >
           <Form>
             <div className="form-floating">
-              <label htmlFor="email">email</label>
-              <Field name="email" type="text" className="form-control" />
+              <Field name="email" type="text" id="floatingEmail" className="form-control" />
+              <label htmlFor="floatingEmail">Email</label>
               <ErrorMessage
                 name="email"
                 component="div"
@@ -82,8 +82,8 @@ export default class Login extends Component<Props, State> {
             </div>
 
             <div className="form-floating">
-              <label htmlFor="password">Password</label>
-              <Field name="password" type="password" className="form-control" />
+              <Field name="password" type="password" id="floatingPassword" className="form-control" />
+              <label htmlFor="floatingPassword">Password</label>
               <ErrorMessage
                 name="password"
                 component="div"
