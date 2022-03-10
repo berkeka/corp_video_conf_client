@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
+import './login.css'
 
 import AuthService from "../services/auth.service";
 
@@ -63,53 +64,49 @@ export default class Login extends Component<Props, State> {
     };
 
     return (
-      <div className="col-md-12">
-        <div className="card card-container">
-          <Formik
-            initialValues={initialValues}
-            onSubmit={this.handleLogin}
-          >
-            <Form>
-              <div className="form-group">
-                <label htmlFor="email">email</label>
-                <Field name="email" type="text" className="form-control" />
-                <ErrorMessage
-                  name="email"
-                  component="div"
-                  className="alert alert-danger"
-                />
-              </div>
+        <main className="form-signin">
+        <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={this.handleLogin}
+        >
+          <Form>
+            <div className="form-floating">
+              <label htmlFor="email">email</label>
+              <Field name="email" type="text" className="form-control" />
+              <ErrorMessage
+                name="email"
+                component="div"
+                className="alert alert-danger"
+              />
+            </div>
 
-              <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <Field name="password" type="password" className="form-control" />
-                <ErrorMessage
-                  name="password"
-                  component="div"
-                  className="alert alert-danger"
-                />
-              </div>
-
-              <div className="form-group">
-                <button type="submit" className="btn btn-primary btn-block" disabled={loading}>
-                  {loading && (
-                    <span className="spinner-border spinner-border-sm"></span>
-                  )}
-                  <span>Login</span>
-                </button>
-              </div>
-
-              {message && (
-                <div className="form-group">
-                  <div className="alert alert-danger" role="alert">
-                    {message}
-                  </div>
-                </div>
+            <div className="form-floating">
+              <label htmlFor="password">Password</label>
+              <Field name="password" type="password" className="form-control" />
+              <ErrorMessage
+                name="password"
+                component="div"
+                className="alert alert-danger"
+              />
+            </div>
+            <button type="submit" className="w-100 btn btn-lg btn-primary" disabled={loading}>
+              {loading && (
+                <span className="spinner-border spinner-border-sm"></span>
               )}
-            </Form>
-          </Formik>
-        </div>
-      </div>
+              <span>Login</span>
+            </button>
+
+            {message && (
+              <div className="form-group">
+                <div className="alert alert-danger" role="alert">
+                  {message}
+                </div>
+              </div>
+            )}
+          </Form>
+        </Formik>
+        </main>
     );
   }
 }
