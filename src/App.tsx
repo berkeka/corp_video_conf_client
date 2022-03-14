@@ -13,6 +13,8 @@ import IUser from './types/user.type';
 import Home from "./components/auth/home.component";
 import Login from "./components/auth/login.component";
 import NotFound from "./components/auth/notfound.component";
+import Dashboard from "./components/dashboard.component";
+import Chatroom from "./components/chat/chatroom.component";
 
 import EventBus from "./common/EventBus";
 
@@ -91,7 +93,9 @@ class App extends Component<Props, State> {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Login />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/chatroom" element={<Chatroom />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
