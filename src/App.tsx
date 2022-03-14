@@ -1,6 +1,5 @@
 import { Component, Fragment } from 'react';
 import {   
-  BrowserRouter,
   Routes,
   Route,
   Link, } from "react-router-dom";
@@ -8,10 +7,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 
 import AuthService from "./services/auth.service";
-import IUser from './types/user.type';
 
 import Home from "./components/auth/home.component";
 import Login from "./components/auth/login.component";
+import Signup from './components/auth/signup.component';
 import NotFound from "./components/auth/notfound.component";
 import Dashboard from "./components/dashboard.component";
 import Chatroom from "./components/chat/chatroom.component";
@@ -93,7 +92,7 @@ class App extends Component<Props, State> {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/chatroom" element={<Chatroom />} />
             <Route path="*" element={<NotFound />} />
