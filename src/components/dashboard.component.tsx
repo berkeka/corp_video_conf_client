@@ -1,8 +1,6 @@
 import { Component } from "react";
-import { Formik, Field, Form, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
 
-import AuthService from "../services/auth.service";
 import ChatroomService from "../services/chat.service";
 
 type Props = any;
@@ -45,7 +43,10 @@ export default class Dashboard extends Component<Props, State> {
           <button type="submit" className="w-20 btn btn-lg btn-primary" onClick={this.createChatroom}>
             <span>Create a Chatroom</span>
           </button>
+          <br />
           <Link to={"/chatroom"} className="w-20 btn btn-lg btn-primary">Go to Chatroom</Link>
+          <br />
+          <Link to={"/meeting"} className="w-20 btn btn-lg btn-primary">Create a Meeting</Link>
         </main>
     );
   }

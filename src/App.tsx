@@ -14,6 +14,7 @@ import Signup from './components/auth/signup.component';
 import NotFound from "./components/auth/notfound.component";
 import Dashboard from "./components/dashboard.component";
 import Chatroom from "./components/chat/chatroom.component";
+import Meeting from "./components/chat/meeting.component";
 
 import EventBus from "./common/EventBus";
 
@@ -95,6 +96,7 @@ class App extends Component<Props, State> {
             <Route path="/signup" element={<Signup />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/chatroom" element={<Chatroom />} />
+            <Route path="/meeting" element={<Meeting />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
