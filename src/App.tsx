@@ -2,7 +2,8 @@ import { Component, Fragment } from 'react';
 import {   
   Routes,
   Route,
-  Link, } from "react-router-dom";
+  Link,
+  Navigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 
@@ -92,11 +93,11 @@ class App extends Component<Props, State> {
         <div className="container mt-3">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/chatroom" element={<Chatroom />} />
-            <Route path="/meeting" element={<Meeting />} />
+            <Route path="/login" element={currentUser ? <Navigate to='/dashboard'/> : <Login />} />
+            <Route path="/signup" element={currentUser ? <Navigate to='/dashboard'/> : <Signup />} />
+            <Route path="/dashboard" element={currentUser ? <Dashboard /> : <Navigate to='/'/>} />
+            <Route path="/chatroom" element={currentUser ? <Chatroom /> : <Navigate to='/'/>} />
+            <Route path="/meeting" element={currentUser ? <Meeting /> : <Navigate to='/'/>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
