@@ -5,11 +5,10 @@ import {
   Link,
   Navigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import './App.css';
 
 import AuthService from "./services/auth.service";
 
-import Home from "./components/auth/home.component";
+import Home from "./components/home.component";
 import Login from "./components/auth/login.component";
 import Signup from './components/auth/signup.component';
 import NotFound from "./components/auth/notfound.component";

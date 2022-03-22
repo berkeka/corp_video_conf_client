@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Jitsi from "react-jitsi";
+import { useSearchParams } from 'react-router-dom';
 
 type Props = any;
 
@@ -21,12 +22,16 @@ export default class Login extends Component<Props, State> {
   }
 
   handleAPI = (JitsiMeetAPI: any) => {
-    JitsiMeetAPI.executeCommand('toggleVideo')
+    const frame = document.getElementById('react-jitsi-frame')
+    if(frame){
+
+      frame.style.display = 'block';
+    }
   }
 
   render() {
     const { loading, message} = this.state;
-
+    const params = new URLSearchParams(window.location.search)
     const initialValues = {
       content: "",
     };
@@ -36,10 +41,10 @@ export default class Login extends Component<Props, State> {
         <h1 className="h3 mb-3 fw-normal">Chatroom</h1>
 
             <Jitsi
-                roomName={'test'}
+                roomName={params.get('meet_name') || 'backuproomname123'}
                 displayName={'test'}
-                password={'test'}
                 onAPILoad={this.handleAPI}
+                domain={'meet.jit.si'}
             />)
         </main>
     );

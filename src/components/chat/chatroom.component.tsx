@@ -6,6 +6,8 @@ import ChatroomService from "../../services/chat.service";
 import MessageService from "../../services/message.service";
 import ChatConnection from "../../services/chat_connection.service";
 
+//import JitsiMeetJS from "lib-jitsi-meet";
+
 
 import IMessage from "../../types/message.type";
 
@@ -37,7 +39,6 @@ export default class Login extends Component<Props, State> {
   }
 
   receivedMessage(data: IMessage){
-    console.log(this.state)
     this.setState({
       messages: this.state.messages.concat([data])
     })
@@ -52,12 +53,16 @@ export default class Login extends Component<Props, State> {
           this.setState({
             messages: res.data
           })
+          const el = document.getElementById('messages');
+          if(el){
+            el.scrollIntoView({block: 'end'});
+          }
         }
       })
     });
   }
 
-  sendMessage(formValue: { content: string}) {
+  sendMessage(formValue: { content: string }) {
     const { content } = formValue;
 
     const connection = this.state.connection;
@@ -73,11 +78,15 @@ export default class Login extends Component<Props, State> {
       content: "",
     };
 
+    const divStyle = {
+      height: '50vh',
+      overflow: 'auto'
+    } 
+
     return (
         <main className="C">
         <h1 className="h3 mb-3 fw-normal">Chatroom</h1>
         <button className="w-100 mb-3 btn btn-lg btn-primary" onClick={this.createChatroom}>Join Chatroom</button>
-
         <Formik
           initialValues={initialValues}
           onSubmit={this.sendMessage}
@@ -93,7 +102,7 @@ export default class Login extends Component<Props, State> {
               />
             </div>
 
-            <div className="mb-3" id="messages">
+            <div className="mb-3" id="messages" style={divStyle}>
               {messages.map((message) => 
                 <ChatItem
                   id={message.id}
